@@ -1,4 +1,4 @@
-export ZSH=/Users/Zet/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 ZSH_THEME="zet"
 
 plugins=(git)
@@ -15,7 +15,7 @@ alias -s bz2='tar -xjvf'
 alias -s py=python
 
 alias ida='wine /Users/Zet/Documents/idaPro6.8/idaq.exe &'
-alias ida64='wine /Users/Zet/Documents/idaPro6.8/idaq64.exe'
+alias ida64='wine /Users/Zet/Documents/idaPro6.8/idaq64.exe &'
 
 function heap()
 {

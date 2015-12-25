@@ -1,7 +1,7 @@
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="zet"
 
-plugins=(git)
+plugins=(brew git virtualenv virtualenvwrapper)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
@@ -14,8 +14,8 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias -s py=python
 
-alias ida='wine /Users/Zet/Documents/idaPro6.8/idaq.exe &'
-alias ida64='wine /Users/Zet/Documents/idaPro6.8/idaq64.exe &'
+alias ida='wine ~/Documents/idaPro6.8/idaq.exe &'
+alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe &'
 
 function heap()
 {

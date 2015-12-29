@@ -17,6 +17,10 @@ alias -s py=python
 alias ida='wine ~/Documents/idaPro6.8/idaq.exe &'
 alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe &'
 
+alias php70='brew link php70'
+alias php55='brew unlink php70'
+alias phps='php -S 0.0.0.0:9000'
+
 function heap()
 {
 ltrace $1 |& ~/tools/villoc/villoc.py - /var/www/heap.html;

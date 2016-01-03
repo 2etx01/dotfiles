@@ -21,6 +21,8 @@ alias php70='brew link php70'
 alias php55='brew unlink php70'
 alias phps='php -S 0.0.0.0:9000'
 
+alias nc='netcat'
+
 function heap()
 {
 ltrace $1 |& ~/tools/villoc/villoc.py - /var/www/heap.html;

@@ -1,0 +1,56 @@
+
+function prompt_zet_precmd {
+  # Get Git repository information.
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+}
+
+function prompt_zet_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook to set up prompt parameters before each command.
+  add-zsh-hook precmd prompt_zet_precmd
+
+  # Use extended color pallete if available.
+  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    _prompt_zet_colors=(
+      "%F{white}"
+      "%F{cyan}"
+      "%F{green}"
+      "%F{red}"
+      "%F{yellow}"
+    )
+  else
+    _prompt_zet_colors=(
+      "%F{white}"
+      "%F{cyan}"
+      "%F{green}"
+      "%F{red}"
+      "%F{yellow}"
+    )
+  fi
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'no'
+  zstyle ':prezto:module:git:info:branch' format '%F{yellow}%b%f'
+  zstyle ':prezto:module:git:info:dirty' format '%B%F{red}!%f%b'
+  zstyle ':prezto:module:git:info:indexed' format ' '
+  zstyle ':prezto:module:git:info:unindexed' format ' '
+  zstyle ':prezto:module:git:info:untracked' format ' '
+  zstyle ':prezto:module:git:info:keys' format 'prompt' '- %b%D '
+
+  # Set ruby-info parameters.
+  zstyle ':prezto:module:ruby:info:version' format '[%v]'
+
+  # Define prompts.
+  PROMPT="${_prompt_zet_colors[2]}%n@%m%f ${_prompt_zet_colors[3]}%~%f "'${git_info:+${(e)git_info[prompt]}}'"# "
+  RPROMPT='%F{blue}${ruby_info[version]}'
+}
+
+prompt_zet_setup "$@"

@@ -1,10 +1,11 @@
-export ZSH=~/.oh-my-zsh
-ZSH_THEME="zet"
-
-plugins=(brew git virtualenv virtualenvwrapper)
+#export ZSH=~/.oh-my-zsh
+#ZSH_THEME="zet"
+#plugins=(brew git virtualenv virtualenvwrapper)
+#source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-source $ZSH/oh-my-zsh.sh
+
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 alias aslr.on="sudo sysctl -w kernel.randomize_va_space=2"
 alias aslr.off="sudo sysctl -w kernel.randomize_va_space=0"

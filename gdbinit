@@ -1,4 +1,4 @@
-source /tools/peda/peda.py
+source ~/ctf-tools/peda/peda.py
 set disassembly-flavor intel
 set pagination off
 set history save on

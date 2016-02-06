@@ -1,23 +1,46 @@
-setopt prompt_subst
+setopt prompt_subst # enable command substition in prompt
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable bzr git hg svn
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '%F{green}●%f'
 zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f'
-zstyle ':vcs_info:*' formats ' - %b%c%u'
+zstyle ':vcs_info:*' formats '  %b%c%u'
 zstyle ':vcs_info:*' actionformats " - [%b%c%u|%F{cyan}%a%f]"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git_status
-precmd () {
-    if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    hook_com[unstaged]='%F{red}●%f'
-    fi
 
-    vcs_info
+ASYNC_PROC=0
+ASYNC_DATA="${TMPPREFIX}-prompt_sorin_data"
+function precmd() {
+
+    function async() {
+        vcs_info
+        # save to temp file
+        printf "%s" "${vcs_info_msg_0_}" > $ASYNC_DATA
+        # signal parent
+        kill -s USR1 $$
+    }
+    # do not clear RPROMPT, let it persist
+    # kill child if necessary
+    if [[ "${ASYNC_PROC}" != 0 ]]; then
+        kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
+    fi
+    # start background computation
+    async &!
+    ASYNC_PROC=$!
 }
+function TRAPUSR1() {
+    # read from temp file
+    RPROMPT="$(cat $ASYNC_DATA)"
+    # reset proc number
+    ASYNC_PROC=0
+    # redisplay
+    zle && zle reset-prompt
+}
+
 PROMPT='%F{cyan}%n@%m%f %F{green}%~%f # '
-RPROMPT='${vcs_info_msg_0_}'
+RPROMPT=''
 
 
 # history

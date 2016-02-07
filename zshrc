@@ -92,17 +92,21 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g S='| sort'
 
+alias gd='git diff'
+alias ga='git add'
 alias gcm='git commit --message'
 alias gp='git push'
 alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
 alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
 
-alias ida='wine ~/Documents/idaPro6.8/idaq.exe &'
-alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe &'
+if [ `uname` = "Darwin" ]; then
+    alias ida='wine ~/Documents/idaPro6.8/idaq.exe &'
+    alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe &'
 
-alias php70='brew link php70'
-alias php55='brew unlink php70'
-alias phps='php -S 0.0.0.0:9000'
+    alias php70='brew link php70'
+    alias php55='brew unlink php70'
+    alias phps='php -S 0.0.0.0:9000'
+fi
 
 alias nc='netcat'
 

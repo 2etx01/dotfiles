@@ -1,6 +1,12 @@
 setopt prompt_subst # enable command substition in prompt
 autoload -Uz vcs_info
 
+function +vi-git_status {
+  # Check for untracked files or updated submodules since vcs_info does not.
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    hook_com[unstaged]='%F{red}●%f'
+  fi
+}
 zstyle ':vcs_info:*' enable bzr git hg svn
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '%F{green}●%f'

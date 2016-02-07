@@ -92,12 +92,14 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g S='| sort'
 
+
+alias git-branch='git rev-parse --abbrev-ref HEAD'
 alias gd='git diff'
 alias ga='git add'
 alias gcm='git commit --message'
 alias gp='git push'
-alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
-alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
+alias gpc='git push --set-upstream origin "$(git-branch 2> /dev/null)"'
+alias gpp='git pull origin "$(git-branch 2> /dev/null)" && git push origin "$(git-branch 2> /dev/null)"'
 
 if [ `uname` = "Darwin" ]; then
     alias ida='wine ~/Documents/idaPro6.8/idaq.exe &'

@@ -92,7 +92,7 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias -s py=python
 
-alias -g G='| grep'
+alias -g G='| grep --color'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
@@ -100,6 +100,7 @@ alias -g S='| sort'
 
 
 alias git_current_branch='git rev-parse --abbrev-ref HEAD'
+alias g='git'
 alias gd='git diff'
 alias ga='git add'
 alias gcm='git commit --message'
@@ -109,8 +110,8 @@ alias gpc='git push --set-upstream origin "$(git_current_branch 2> /dev/null)"'
 alias gpp='git pull origin "$(git_current_branch 2> /dev/null)" && git push origin "$(git_current_branch 2> /dev/null)"'
 
 if [ `uname` = "Darwin" ]; then
-    alias ida='wine ~/Documents/idaPro6.8/idaq.exe &'
-    alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe &'
+    alias ida='wine ~/Documents/idaPro6.8/idaq.exe  >> /dev/null 2>&1 &'
+    alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe  >> /dev/null 2>&1 &'
 
     alias php70='brew link php70'
     alias php55='brew unlink php70'

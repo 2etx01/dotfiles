@@ -15,3 +15,11 @@ hi cursorline cterm=none term=none
 highlight CursorLine guibg=#303000 ctermbg=008
 set showmode
 set number
+set ai
+set ruler
+" inoremap
+inoremap ( ()<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<ESC>i

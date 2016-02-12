@@ -50,6 +50,7 @@ RPROMPT=''
 
 
 # history
+HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=1000
 setopt INC_APPEND_HISTORY #以附加方式寫入歷史紀錄

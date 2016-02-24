@@ -119,10 +119,8 @@ if [ `uname` = "Darwin" ]; then
     alias phps='php -S 0.0.0.0:9000'
 fi
 
+if [ -d ~/ctf-tools ]; then
+    source ~/ctf-tools/pwn
+fi
+
 alias nc='netcat'
-
-function heap()
-{
-ltrace $1 |& ~/tools/villoc/villoc.py - /var/www/heap.html;
-}
-

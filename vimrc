@@ -17,9 +17,3 @@ set showmode
 set number
 set ai
 set ruler
-" inoremap
-inoremap ( ()<Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<ESC>i

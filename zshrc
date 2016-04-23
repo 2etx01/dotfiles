@@ -81,8 +81,7 @@ else
     alias ls='ls -G'
 fi
 
-
-
+alias grep='grep --color'
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -93,6 +92,7 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias -s py=python
 
+alias grep='grep --color'
 alias -g G='| grep --color'
 alias -g L='| less'
 alias -g H='| head'

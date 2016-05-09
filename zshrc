@@ -15,6 +15,7 @@ zstyle ':vcs_info:*' formats '  %b%c%u'
 zstyle ':vcs_info:*' actionformats " - [%b%c%u|%F{cyan}%a%f]"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git_status
+zstyle ':completion:*' use-ip true
 
 ASYNC_PROC=0
 ASYNC_DATA="${TMPPREFIX}-prompt_sorin_data"

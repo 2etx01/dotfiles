@@ -19,3 +19,5 @@ set ai
 set ruler
 " shift + tab = tab
 :inoremap <S-Tab> <C-V><Tab>
+" set mouse
+set mouse=a

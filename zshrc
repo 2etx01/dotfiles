@@ -126,3 +126,11 @@ if [ -d ~/ctf-tools ]; then
 fi
 
 alias nc='netcat'
+alias shutdown='shutdown -h now'
+alias reboot='shutdown -r now'
+
+#Docker
+function da()
+{
+    docker exec -it $1 bash
+}

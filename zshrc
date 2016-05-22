@@ -130,8 +130,11 @@ alias nc='netcat'
 alias shutdown='shutdown -h now'
 alias reboot='shutdown -r now'
 
+function x(){
+    chmod +x $1
+}
+
 #Docker
-function da()
-{
+function da(){
     docker exec -it $1 bash
 }

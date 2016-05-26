@@ -135,6 +135,10 @@ function x(){
     chmod +x $1
 }
 
+function killport(){
+    kill `lsof -t -i:$1`
+}
+
 #Docker
 function da(){
     docker exec -it $1 bash

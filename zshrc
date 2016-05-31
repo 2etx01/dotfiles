@@ -122,6 +122,8 @@ if [ `uname` = "Darwin" ]; then
     alias phps='php -S 0.0.0.0:9000'
 fi
 
+alias pys='python -m SimpleHTTPServer'
+
 if [ -d ~/ctf-tools ]; then
     source ~/ctf-tools/pwn
 fi
@@ -129,6 +131,9 @@ fi
 alias nc='netcat'
 alias shutdown='shutdown -h now'
 alias reboot='shutdown -r now'
+alias freemem='echo 1 > /proc/sys/vm/drop_caches'
+
+
 
 function x(){
     chmod +x $1

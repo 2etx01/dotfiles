@@ -83,7 +83,6 @@ else
 fi
 
 alias ll='ls -la'
-alias ..='cd ..'
 alias grep='grep --color'
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"

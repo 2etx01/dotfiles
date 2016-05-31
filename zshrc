@@ -83,6 +83,7 @@ else
 fi
 
 alias ll='ls -la'
+alias ..='cd ..'
 alias grep='grep --color'
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -137,6 +138,10 @@ alias freemem='echo 1 > /proc/sys/vm/drop_caches'
 
 function x(){
     chmod +x $1
+}
+
+function killport(){
+    kill `lsof -t -i:$1`
 }
 
 #Docker

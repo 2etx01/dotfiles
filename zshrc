@@ -124,7 +124,7 @@ fi
 
 alias pys='python -m SimpleHTTPServer'
 
-if [ -d ~/ctf-tools ]; then
+if [ -d ~/.ctf-tools ]; then
     source ~/.ctf-tools/pwn
 fi
 

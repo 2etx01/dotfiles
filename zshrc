@@ -125,7 +125,7 @@ fi
 alias pys='python -m SimpleHTTPServer'
 
 if [ -d ~/ctf-tools ]; then
-    source ~/ctf-tools/pwn
+    source ~/.ctf-tools/pwn
 fi
 
 alias nc='netcat'

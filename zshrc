@@ -46,9 +46,13 @@ function TRAPUSR1() {
     zle && zle reset-prompt
 }
 
-PROMPT='%F{cyan}%n@%m%f %F{green}%~%f # '
-RPROMPT=''
-
+if [ `id -u` = 0 ]; then
+    PROMPT='%F{red}%n@%m%f %F{cyan}%~%f # '
+    RPROMPT=''
+else
+    PROMPT='%F{cyan}%n@%m%f %F{green}%~%f $ '
+    RPROMPT=''
+fi
 
 # history
 HISTFILE=$HOME/.zsh_history

@@ -120,9 +120,9 @@ if [ `uname` = "Darwin" ]; then
     alias ida='wine ~/Documents/idaPro6.8/idaq.exe  >> /dev/null 2>&1 &'
     alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe  >> /dev/null 2>&1 &'
 
-    alias php70='brew unlink php70 && brew link php70'
-    alias php55='brew unlink php55 && brew link php55'
-    alias php56='brew unlink php56 && brew link php56'
+    alias php70='brew link php70'
+    alias php55='brew link php55'
+    alias php56='brew link php56'
     alias phps='php -S 0.0.0.0:9000'
 fi
 

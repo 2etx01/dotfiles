@@ -47,7 +47,7 @@ function TRAPUSR1() {
 }
 
 if [ `id -u` = 0 ]; then
-    PROMPT='%F{red}%n@%m%f %F{green}%~%f # '
+    PROMPT='%F{red}%n@%m%f %F{blue}%~%f # '
     RPROMPT=''
 else
     PROMPT='%F{cyan}%n@%m%f %F{green}%~%f $ '
@@ -130,6 +130,8 @@ alias pys='python -m SimpleHTTPServer'
 
 if [ -d ~/.ctf-tools ]; then
     source ~/.ctf-tools/pwn
+    alias gdb-peda="gdb -x $HOME/.ctf-tools/peda/peda.py"
+    alias gdb-heap="gdb -x $HOME/.ctf-tools/pylib/libheap.py"
 fi
 
 alias nc='netcat'

@@ -21,3 +21,5 @@ set ruler
 :inoremap <S-Tab> <C-V><Tab>
 " set mouse
 set mouse=a
+let python_highlight_all = 1
+

@@ -115,6 +115,8 @@ alias gp='git push'
 alias gl='git pull'
 alias gpc='git push --set-upstream origin "$(git_current_branch 2> /dev/null)"'
 alias gpp='git pull origin "$(git_current_branch 2> /dev/null)" && git push origin "$(git_current_branch 2> /dev/null)"'
+alias gc='git checkout'
+alias gb='git branch'
 
 if [ `uname` = "Darwin" ]; then
     alias ida='wine ~/Documents/idaPro6.8/idaq.exe  >> /dev/null 2>&1 &'

@@ -132,8 +132,6 @@ alias pys='python -m SimpleHTTPServer'
 
 if [ -d ~/.ctf-tools ]; then
     source ~/.ctf-tools/pwn
-    alias gdb-peda="gdb -x $HOME/.ctf-tools/peda/peda.py"
-    alias gdb-heap="gdb -x $HOME/.ctf-tools/pylib/libheap.py"
 fi
 
 alias nc='netcat'

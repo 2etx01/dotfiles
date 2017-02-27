@@ -3,3 +3,5 @@
 *.swp
 .netrwhist
 vim/bundle/YouCompleteMe/
+vim/bundle/vim-airline-themes/
+vim/bundle/vim-airline/

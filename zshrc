@@ -93,6 +93,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+alias -s rm='rm -i'
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
@@ -120,6 +121,7 @@ alias gpc='git push --set-upstream origin "$(git_current_branch 2> /dev/null)"'
 alias gpp='git pull origin "$(git_current_branch 2> /dev/null)" && git push origin "$(git_current_branch 2> /dev/null)"'
 alias gc='git checkout'
 alias gb='git branch'
+alias gs='git status'
 
 if [ `uname` = "Darwin" ]; then
     alias ida='wine ~/Documents/idaPro6.8/idaq.exe  >> /dev/null 2>&1 &'

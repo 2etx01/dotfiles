@@ -2,6 +2,7 @@
 syntax enable
 set t_Co=256
 syntax on
+colorscheme hybrid
 " tab
 set tabstop=4
 set shiftwidth=4
@@ -17,6 +18,7 @@ set showmode
 set number
 set ai
 set ruler
+let g:enable_bold_font = 1
 " shift + tab = tab
 :inoremap <S-Tab> <C-V><Tab>
 " set mouse
@@ -32,9 +34,11 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -58,6 +62,8 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tags_files=1
 "字符開始補全

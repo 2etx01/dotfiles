@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+import socket
+import sys, argparse
+import multiprocessing
+import time
+
+parser = argparse.ArgumentParser(description='port scaner')
+parser.add_argument("-p", "--port", default='22', help="port")
+args = parser.parse_args()
+
+if (args.port.find("-") != -1) :
+    port = args.port.split("-")
+    port = range(int(port[0]),int(port[1])+1)
+elif (args.port.find("-") != -1) :
+    port = args.port.split(",")
+else :
+    port = range(int(args.port),int(args.port)+1)
+
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(('8.8.8.8', 80))
+    return s.getsockname()[0]
+
+ip = get_ip()
+print 'local ip : '+ip
+
+def getips(host):
+    ips = []
+    ip_pre = ""
+    for pre in host.split('.')[0:3]:
+        ip_pre = ip_pre + pre + '.'
+    for i in range(1, 255):
+        ips.append(ip_pre + str(i))
+    return ips
+
+def scan(ip,port):
+        try :
+            sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sk.settimeout(0.5)
+            sk.connect((ip,port))
+            sk.close()
+            print "[+] %s port %d OK" % (ip,port)
+        except :
+            #print str(ip)+':'+str(port)
+            None
+
+if __name__ == '__main__':
+    success = []
+    pool = multiprocessing.Pool(processes=80)
+    cip = getips(ip)
+    #print type(cip)
+    for i in range(len(cip)) :
+        for p in port :
+            pool.apply_async(scan,(cip[i], p, ))
+    pool.close()
+    pool.join()
+    print '.....over'
+

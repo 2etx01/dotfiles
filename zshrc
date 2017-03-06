@@ -91,7 +91,7 @@ alias ll='ls -la'
 alias grep='grep --color'
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
 
 alias -s rm='rm -i'
 alias -s gz='tar -xzvf'
@@ -143,7 +143,7 @@ alias nc='netcat'
 alias shutdown='shutdown -h now'
 alias reboot='shutdown -r now'
 alias freemem='echo 1 > /proc/sys/vm/drop_caches'
-
+alias ip='curl ip.zet.tw'
 
 
 function x(){

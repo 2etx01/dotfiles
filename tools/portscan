@@ -11,7 +11,7 @@ args = parser.parse_args()
 if (args.port.find("-") != -1) :
     port = args.port.split("-")
     port = range(int(port[0]),int(port[1])+1)
-elif (args.port.find("-") != -1) :
+elif (args.port.find(",") != -1) :
     port = args.port.split(",")
 else :
     port = range(int(args.port),int(args.port)+1)
@@ -22,7 +22,7 @@ def get_ip():
     return s.getsockname()[0]
 
 ip = get_ip()
-print 'local ip : '+ip
+print 'local ip : '+ip+'\n'
 
 def getips(host):
     ips = []
@@ -36,23 +36,23 @@ def getips(host):
 def scan(ip,port):
         try :
             sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sk.settimeout(0.5)
+            sk.settimeout(1)
             sk.connect((ip,port))
             sk.close()
-            print "[+] %s port %d OK" % (ip,port)
+            print "\r[+] %s port %d OK" % (ip,port)
         except :
-            #print str(ip)+':'+str(port)
+            sys.stdout.write("\r%s:%s  " % (ip,port))
+            sys.stdout.flush()
             None
 
 if __name__ == '__main__':
     success = []
     pool = multiprocessing.Pool(processes=80)
     cip = getips(ip)
-    #print type(cip)
     for i in range(len(cip)) :
         for p in port :
-            pool.apply_async(scan,(cip[i], p, ))
+            pool.apply_async(scan,(cip[i], int(p), ))
     pool.close()
     pool.join()
-    print '.....over'
+    print '\n.....over'
 

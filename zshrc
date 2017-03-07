@@ -86,7 +86,7 @@ else
     alias ls='ls -G'
 fi
 
-alias vi='vim'
+alias vi='vim --noplugin'
 alias ll='ls -la'
 alias grep='grep --color'
 export LANG="en_US.UTF-8"

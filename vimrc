@@ -3,6 +3,7 @@ syntax enable
 set t_Co=256
 syntax on
 colorscheme hybrid
+set background=dark
 " tab
 set tabstop=4
 set shiftwidth=4

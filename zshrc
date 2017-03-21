@@ -151,7 +151,7 @@ function x(){
 }
 
 function killport(){
-    kill `lsof -t -i:$1`
+    kill -9 `lsof -t -i:$1`
 }
 
 #Docker

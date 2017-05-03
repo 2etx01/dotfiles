@@ -86,6 +86,7 @@ else
     alias ls='ls -G'
 fi
 
+eval $(thefuck --alias)
 alias vi='vim --noplugin'
 alias ll='ls -la'
 alias grep='grep --color'

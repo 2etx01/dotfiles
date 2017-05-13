@@ -52,7 +52,7 @@ if [ `id -u` = 0 ]; then
     RPROMPT=''
 else
     #PROMPT='%F{cyan}%n@%m%f %F{green}%~%f $ '
-    PROMPT='%F{80}%n@%m%f:%F{78}%~%f$ '
+    PROMPT='%F{116}%n@%m%f:%F{114}%~%f$ '
     RPROMPT=''
 fi
 

@@ -1,6 +1,7 @@
 " colors
 syntax enable
 set t_Co=256
+set t_ut=
 syntax on
 colorscheme hybrid
 set background=dark

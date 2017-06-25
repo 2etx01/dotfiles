@@ -161,7 +161,7 @@ function killport(){
 
 #Docker
 function da(){
-    docker exec -it $1 bash
+    docker exec -it $1 zsh
 }
 
 function webshell(){

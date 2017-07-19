@@ -27,7 +27,8 @@ let g:enable_bold_font = 1
 set mouse=a
 let python_highlight_all = 1
 set backspace=indent,eol,start "Backspace key won't move from current line
-
+"vim-airline theme
+let g:airline_theme='distinguished'
 """"""""""""""""""""""""""""""""""""""""
 " vundle
 """"""""""""""""""""""""""""""""""""""""
@@ -43,16 +44,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-""""""""""""""""""""""""""""""""""""""""
-" vim-airline
-""""""""""""""""""""""""""""""""""""""""
-set laststatus=2
-"let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme='distinguished'
 
 """"""""""""""""""""""""""""""""""""""""
 " YouCompleteMe

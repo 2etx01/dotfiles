@@ -32,18 +32,29 @@ let g:airline_theme='distinguished'
 """"""""""""""""""""""""""""""""""""""""
 " vundle
 """"""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-call vundle#end()            " required
-filetype plugin indent on    " required
+if !filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
+    echo "Vundle not installed!"
+    if confirm("Install Vundle now?", "&Yes\n&No", 1)==1
+        silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        silent !vim +PluginInstall +qall
+        echo "Vundle Installed"
+        silent !vim
+        exit
+    endif
+else
+    set nocompatible              " be iMproved, required
+    filetype off                  " required
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+endif
 
 """"""""""""""""""""""""""""""""""""""""
 " YouCompleteMe

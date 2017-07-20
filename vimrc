@@ -20,6 +20,9 @@ set showmode
 set number
 set ai
 set ruler
+set hlsearch
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" nnoremap <CR> :noh<CR><CR>
 let g:enable_bold_font = 1
 " shift + tab = tab
 :inoremap <S-Tab> <C-V><Tab>
@@ -36,6 +39,9 @@ inoremap <S-j> <Esc>:m .+1<CR>==gi
 inoremap <S-k> <Esc>:m .-2<CR>==gi
 vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
+" finding files
+set path+=**
+set wildmenu
 """"""""""""""""""""""""""""""""""""""""
 " vundle
 """"""""""""""""""""""""""""""""""""""""
@@ -49,7 +55,7 @@ if !filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
         exit
     endif
 else
-    set nocompatible              " be iMproved, required
+    set nocompatible              " VIM 不使用和 VI 相容的模式
     filetype off                  " required
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()

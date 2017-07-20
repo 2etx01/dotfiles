@@ -20,8 +20,10 @@ set showmode
 set number
 set ai
 set ruler
+" search
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+set incsearch
 " nnoremap <CR> :noh<CR><CR>
 let g:enable_bold_font = 1
 " shift + tab = tab
@@ -42,6 +44,10 @@ vnoremap <S-k> :m '<-2<CR>gv=gv
 " finding files
 set path+=**
 set wildmenu
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 """"""""""""""""""""""""""""""""""""""""
 " vundle
 """"""""""""""""""""""""""""""""""""""""

@@ -48,11 +48,13 @@ function TRAPUSR1() {
 
 if [ `id -u` = 0 ]; then
     #PROMPT='%F{red}%n@%m%f %F{blue}%~%f # '
-    PROMPT='%F{1}%n@%m%f:%F{172}%~%f# '
+    #PROMPT='%F{1}%n@%m%f:%F{172}%~%f# '
+    PROMPT='%F{172}%~%f %F{1}»%f '
     RPROMPT=''
 else
     #PROMPT='%F{cyan}%n@%m%f %F{green}%~%f $ '
-    PROMPT='%F{116}%n@%m%f:%F{114}%~%f$ '
+    #PROMPT='%F{116}%n@%m%f:%F{114}%~%f$ '
+    PROMPT='%F{114}%~%f %F{116}»%f '
     RPROMPT=''
 fi
 

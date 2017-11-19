@@ -47,29 +47,14 @@ set wildmenu
 """"""""""""""""""""""""""""""""""""""""
 " vundle
 """"""""""""""""""""""""""""""""""""""""
-if !filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
-    echo "Vundle not installed!"
-    if confirm("Install Vundle now?", "&Yes\n&No", 1)==1
-        silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-        silent !vim +PluginInstall +qall
-        echo "Vundle Installed"
-        silent !vim
-        exit
-    endif
-else
-    set nocompatible              " VIM 不使用和 VI 相容的模式
-    filetype off                  " required
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
-    Plugin 'Valloric/YouCompleteMe'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
-    call vundle#end()            " required
-    filetype plugin indent on    " required
-endif
+call plug#begin('~/.vim/plugged')
+Plug 'VundleVim/Vundle.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
 """"""""""""""""""""""""""""""""""""""""
@@ -93,3 +78,5 @@ let g:ycm_complete_in_comments = 1
 " 字串補全
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
+let g:ycm_python_binary_path = '/usr/bin/python'
+

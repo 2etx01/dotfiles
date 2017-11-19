@@ -3,6 +3,8 @@ snippet pwn
 	# -*- coding: utf-8 -*-
 	from zp import *
 
+	# context.arch = 'amd64'
+	# context.arch = 'i386'
 	r =remote('localhost',4000)
 	
 	r.interactive()

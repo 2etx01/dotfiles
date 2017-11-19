@@ -3,3 +3,5 @@
 *.swp
 .netrwhist
 vim/bundle/
+vim/autoload/
+vim/plugged/

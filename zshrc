@@ -136,6 +136,7 @@ if [ `uname` = "Darwin" ]; then
     alias php70='brew link php70'
     alias php55='brew link php55'
     alias php56='brew link php56'
+    alias brewup='brew upgrade && brew cleanup'
 fi
 
 alias pys='python -m SimpleHTTPServer'

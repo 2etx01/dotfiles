@@ -54,7 +54,8 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export EDITOR=vim
 export TERM=screen-256color
-
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
+ 
 
 alias ls='ls --color=auto'
 alias ll='ls -alF'
@@ -68,8 +69,51 @@ alias strace="strace -ixv"
 alias ltrace="ltrace -iC"
 alias objdump="objdump -M intel"
 alias gdb="gdb -q"
+alias vi='vim --noplugin'
+
+alias g='git'
+alias gd='git diff'
+alias ga='git add'
+alias gcm='git commit --message'
+alias gp='git push'
+alias gl='git pull'
+alias gpc='git push --set-upstream origin "$(git_current_branch 2> /dev/null)"'
+alias gpp='git pull origin "$(git_current_branch 2> /dev/null)" && git push origin "$(git_current_branch 2> /dev/null)"'
+alias gc='git checkout'
+alias gb='git branch'
+alias gs='git status'
+
+alias pys='python -m SimpleHTTPServer'
+alias phps='php -S 0.0.0.0:9000'
+
+alias nc='netcat'
+alias shutdown='shutdown -h now'
+alias reboot='shutdown -r now'
+alias freemem='echo 1 > /proc/sys/vm/drop_caches'
+alias ip='curl ip.zet.tw'
 
 if [ "$(uname)" == "Darwin" ]; then
     export LSCOLORS="exfxcxdxbxGxDxabagacad"
     alias ls="ls -G"
+    alias php70='brew link php70'
+    alias php55='brew link php55'
+    alias php56='brew link php56'
+    alias brewup="brew upgrade && brew cleanup"
 fi
+
+[ -f ~/.ctf-tools/pwn ] && . ~/.ctf-tools/pwn
+
+x(){
+    chmod +x $1
+}
+
+killport(){
+    kill -9 `lsof -t -i:$1`
+}
+
+#Docker
+da(){
+    docker exec -it $1 zsh
+}
+
+

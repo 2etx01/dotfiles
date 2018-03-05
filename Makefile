@@ -7,6 +7,7 @@ install:
 	ln -fs `pwd`/vim "${HOME}/.vim"
 	ln -fs `pwd`/bashrc    "${HOME}/.bashrc"
 	ln -fs `pwd`/inputrc    "${HOME}/.inputrc"
+	ln -fs `pwd`/BurpSuite "${HOME}/.BurpSuite"
 
 clean:
 	rm ~/.vimrc ~/.tmux.conf ~/.gdbinit ~/.gitconfig ~/.zshrc ~/.bashrc ~/.inputrc

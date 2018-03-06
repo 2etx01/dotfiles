@@ -98,7 +98,9 @@ export LANGUAGE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
-
+if [ `uname` = "Darwin" ]; then
+    export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
+fi
 alias -s rm='rm -i'
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'

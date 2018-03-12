@@ -8,6 +8,7 @@ install:
 	ln -fs `pwd`/bashrc    "${HOME}/.bashrc"
 	ln -fs `pwd`/inputrc    "${HOME}/.inputrc"
 	ln -fs `pwd`/BurpSuite "${HOME}/.BurpSuite"
+	ln -fs `pwd`/hyper.js "${HOME}/.hyper.js"
 
 clean:
 	rm ~/.vimrc ~/.tmux.conf ~/.gdbinit ~/.gitconfig ~/.zshrc ~/.bashrc ~/.inputrc

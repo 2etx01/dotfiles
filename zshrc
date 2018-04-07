@@ -39,6 +39,9 @@ function precmd() {
     async &!
     ASYNC_PROC=$!
 }
+
+unsetopt BG_NICE
+
 function TRAPUSR1() {
     # read from temp file
     RPROMPT="$(cat $ASYNC_DATA)"

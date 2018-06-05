@@ -1,5 +1,8 @@
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
 setopt prompt_subst # enable command substition in prompt
 autoload -Uz vcs_info
 

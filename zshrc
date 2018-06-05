@@ -79,6 +79,9 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'  #大小寫修正
 zstyle ':completion:*:*:*:*:*' menu select  #開啟補齊select顏色
 
 
+#autojump
+[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
+#autoload -U compinit && compinit -u
 
 #Colors
 export TERM=xterm-256color

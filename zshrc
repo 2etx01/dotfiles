@@ -150,7 +150,7 @@ if [ `uname` = "Darwin" ]; then
     alias php55='brew link php55'
     alias php56='brew link php56'
     alias brewup='brew upgrade && brew cleanup'
-    [[ -s /usr/local/bin/autojump ]] && source /usr/local/bin/autojump
+    [[ -s /Users/zet/.autojump/etc/profile.d/autojump.sh ]] && source /Users/zet/.autojump/etc/profile.d/autojump.sh
 fi
 
 alias pys='python -m SimpleHTTPServer'

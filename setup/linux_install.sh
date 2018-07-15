@@ -16,5 +16,10 @@ sh autogen.sh
 sudo make install
 rm -fr /tmp/tmux
 
+# install docker
+sudo apt install docker.io
+rm -f /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+
 
 apt-get install ttf-mscorefonts-installer font-noto

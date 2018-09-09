@@ -175,6 +175,10 @@ function killport(){
     kill -9 `lsof -t -i:$1`
 }
 
+function ninja-ssh(){
+    ssh -l$1 $2 /usr/bin/bash
+}
+
 #Docker
 function da(){
     docker exec -it $1 zsh

@@ -154,6 +154,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 alias pys='python -m SimpleHTTPServer'
+alias py3s='python3 -m http.server'
 alias phps='php -S 0.0.0.0:9000'
 
 if [ -d ~/.ctf-tools ]; then

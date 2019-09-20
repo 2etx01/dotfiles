@@ -26,4 +26,4 @@ brew install radare2
 
 brew cask install android-platform-tools
 
-brew cask install chrome firefox virtualbox visual-studio-code iterm2 spotify iina telegram-desktop evernote
+brew cask install chrome firefox vmware-fusion virtualbox visual-studio-code iterm2 spotify iina vlc keka notion telegram-desktop karabiner-elements tunnelblick appcleaner teamviewer

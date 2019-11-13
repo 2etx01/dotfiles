@@ -47,7 +47,7 @@ let python_highlight_all = 1
 set backspace=indent,eol,start "Backspace key won't move from current line
 " vim-airline theme
 " let g:airline_theme='distinguished'
-let g:airline_theme='onedark'
+let g:airline_theme='nord'
 " move line
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==

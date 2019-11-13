@@ -1,8 +1,7 @@
 #!/bin/sh
 
-
 ## ppa
-sudo add-apt-repository ppa:jonathonf/vim
+#sudo add-apt-repository ppa:jonathonf/vim
 
 # install tmux
 sudo apt update
@@ -17,10 +16,14 @@ sh autogen.sh
 sudo make install
 rm -fr /tmp/tmux
 
-# install docker
-sudo apt install docker.io
-rm -f /etc/localtime
-ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+sudo apt install vim htop zsh man wget python-minimal python-pip  python3-pip 
 
+pip3 install --user pipenv
 
-apt-get install ttf-mscorefonts-installer font-noto
+## install docker
+#sudo apt install docker.io
+#rm -f /etc/localtime
+#ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+
+## font
+#apt-get install ttf-mscorefonts-installer font-noto

@@ -9,12 +9,12 @@ autoload -Uz vcs_info
 function +vi-git_status {
   # Check for untracked files or updated submodules since vcs_info does not.
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    hook_com[unstaged]='%F{red}✘%f'
+    hook_com[unstaged]='%F{red}✗%f'
   fi
 }
 zstyle ':vcs_info:*' enable bzr git hg svn
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%F{green}✔%f'
+zstyle ':vcs_info:*' stagedstr '%F{green}✓%f'
 zstyle ':vcs_info:*' unstagedstr '%F{yellow}•%f'
 zstyle ':vcs_info:*' formats '  %b%c%u'
 zstyle ':vcs_info:*' actionformats " - [%b%c%u|%F{cyan}%a%f]"
@@ -112,12 +112,12 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
 if [ `uname` = "Darwin" ]; then
     export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 fi
+alias python=/usr/bin/python2.7
 alias -s rm='rm -i'
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias -s py=python
 alias -s jar='java -jar'
 
 alias grep='grep --color'

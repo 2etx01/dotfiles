@@ -112,6 +112,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
 if [ `uname` = "Darwin" ]; then
     export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 fi
+if uname | grep -q 'MINGW64'; then
+    export PATH="/c/msys64/mingw64/bin:$PATH"
+fi
 alias python=/usr/bin/python2.7
 alias -s rm='rm -i'
 alias -s gz='tar -xzvf'

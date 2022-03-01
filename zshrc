@@ -115,11 +115,10 @@ fi
 if uname | grep -q 'MINGW64'; then
     export PATH="/c/msys64/mingw64/bin:$PATH"
 fi
-alias python=/usr/bin/python2.7
+
 alias -s rm='rm -i'
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
-alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias -s jar='java -jar'
 

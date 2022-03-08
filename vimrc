@@ -46,8 +46,7 @@ set mouse=a
 let python_highlight_all = 1
 set backspace=indent,eol,start "Backspace key won't move from current line
 " vim-airline theme
-" let g:airline_theme='distinguished'
-let g:airline_theme='nord'
+let g:airline_theme='distinguished'
 " move line
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
@@ -70,6 +69,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 " YouCompleteMe

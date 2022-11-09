@@ -3,6 +3,8 @@
 ## ppa
 #sudo add-apt-repository ppa:jonathonf/vim
 
+sudo timedatectl set-timezone Asia/Taipei
+
 # install tmux
 sudo apt update
 sudo apt install -y git
@@ -10,7 +12,6 @@ sudo apt install -y automake build-essential pkg-config libevent-dev libncurses5
 rm -fr /tmp/tmux
 git clone https://github.com/tmux/tmux.git /tmp/tmux
 cd /tmp/tmux
-git checkout 2.4
 sh autogen.sh
 ./configure && make
 sudo make install

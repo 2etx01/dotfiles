@@ -7,7 +7,7 @@ install:
 	ln -fs `pwd`/vim "${HOME}/.vim"
 	ln -fs `pwd`/bashrc    "${HOME}/.bashrc"
 	ln -fs `pwd`/inputrc    "${HOME}/.inputrc"
-	ln -fs `pwd`/BurpSuite "${HOME}/.BurpSuite"
+	ln -fs `pwd`/BurpSuite/UserConfigPro.json "${HOME}/.BurpSuite/UserConfigPro.json"
 	ln -fs `pwd`/hyper.js "${HOME}/.hyper.js"
 
 clean:

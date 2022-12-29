@@ -163,6 +163,8 @@ if [ `uname` = "Darwin" ]; then
     alias php55='brew link php55'
     alias php56='brew link php56'
     alias brewup='brew upgrade && brew cleanup'
+    export PATH="/usr/local/sbin:$PATH"
+    export PATH="$PATH:$HOME/.local/bin"
 fi
 
 alias pys='python3 -m http.server'
@@ -172,15 +174,20 @@ if [ -d ~/.ctf-tools ]; then
     source ~/.ctf-tools/pwn
 fi
 
-
 . $HOME/.dotfiles/tools/z.sh
 
 alias nc='netcat'
 alias shutdown='shutdown -h now'
 alias reboot='shutdown -r now'
 alias freemem='echo 1 > /proc/sys/vm/drop_caches'
-alias ip='curl https://am.i.mullvad.net/ip'
 
+
+function ip(){
+    echo "[+] mullvad:"
+    curl -s https://am.i.mullvad.net/ip
+    echo "\n[+] ip-api:"
+    curl -s http://ip-api.com/json/ | jq -r '.query,.country,.regionName'
+}
 
 function x(){
     chmod +x $1

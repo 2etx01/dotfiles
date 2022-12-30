@@ -126,7 +126,8 @@ else
     alias ls='ls -G'
 fi
 
-alias vi='vim --noplugin'
+alias vi='nvim --clean'
+alias vim='nvim'
 alias ll='ls -la'
 alias grep='grep --color'
 

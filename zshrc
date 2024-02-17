@@ -99,9 +99,6 @@ export LC_ALL="en_US.UTF-8"
 
 # Setup PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/tools"
-if [ `uname` = "Darwin" ]; then
-    export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
-fi
 
 if uname | grep -q 'MINGW64'; then
     export PATH="/c/msys64/mingw64/bin:$PATH"
@@ -159,11 +156,17 @@ alias gc='git checkout'
 alias gb='git branch'
 alias gs='git status'
 
+alias pys='python3 -m http.server'
+alias phps='php -S 0.0.0.0:9000'
+
 if [ `uname` = "Darwin" ]; then
     alias php70='brew link php70'
     alias php55='brew link php55'
     alias php56='brew link php56'
     alias brewup='brew upgrade && brew cleanup'
+
+    eval "$(zoxide init zsh)"
+
     export PATH="/usr/local/sbin:$PATH"
     export PATH="$PATH:$HOME/.local/bin"
 
@@ -175,20 +178,19 @@ if [ `uname` = "Darwin" ]; then
 		}
 fi
 
-alias pys='python3 -m http.server'
-alias phps='php -S 0.0.0.0:9000'
+if [ `uname` = "Linux" ]; then
+    . $HOME/.dotfiles/tools/z.sh
+fi
+
 
 if [ -d ~/.ctf-tools ]; then
     source ~/.ctf-tools/pwn
 fi
 
-. $HOME/.dotfiles/tools/z.sh
-
 alias nc='netcat'
 alias shutdown='shutdown -h now'
 alias reboot='shutdown -r now'
 alias freemem='echo 1 > /proc/sys/vm/drop_caches'
-
 
 function ip(){
     echo "[+] mullvad:"
@@ -215,7 +217,7 @@ function ninja-ssh(){
 
 #Docker
 function da(){
-    docker exec -it $1 zsh
+    docker exec -it $1 /bin/sh
 }
 
 function docker-cleanup(){

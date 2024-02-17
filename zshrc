@@ -166,6 +166,13 @@ if [ `uname` = "Darwin" ]; then
     alias brewup='brew upgrade && brew cleanup'
     export PATH="/usr/local/sbin:$PATH"
     export PATH="$PATH:$HOME/.local/bin"
+
+		function hide-desktop(){
+			defaults write com.apple.finder CreateDesktop -bool FALSE; killall Finder
+		}
+		function show-desktop(){
+		  defaults write com.apple.finder CreateDesktop -bool TRUE; killall Finder
+		}
 fi
 
 alias pys='python3 -m http.server'
@@ -192,6 +199,10 @@ function ip(){
 
 function x(){
     chmod +x $1
+}
+
+function pwgen(){
+    python3 -c "import secrets;print(secrets.token_urlsafe($1))"
 }
 
 function killport(){

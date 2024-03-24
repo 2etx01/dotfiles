@@ -8,7 +8,7 @@ sudo timedatectl set-timezone Asia/Taipei
 # install tmux
 sudo apt update
 sudo apt install -y git
-sudo apt install -y automake build-essential pkg-config libevent-dev libncurses5-dev 
+sudo apt install -y automake build-essential pkg-config libevent-dev libncurses5-dev
 rm -fr /tmp/tmux
 git clone https://github.com/tmux/tmux.git /tmp/tmux
 cd /tmp/tmux
@@ -17,12 +17,13 @@ sh autogen.sh
 sudo make install
 rm -fr /tmp/tmux
 
-sudo apt install vim htop zsh man wget python-minimal python-pip  python3-pip 
+sudo apt install vim htop zsh man wget python-minimal python-pip python3-pip
 
 pip3 install --user pipenv
 
-## install docker
-#sudo apt install docker.io
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh --dry-run
+
 #rm -f /etc/localtime
 #ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 
